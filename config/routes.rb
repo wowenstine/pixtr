@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root to: "galleries#index"
-  resources :galleries
+  resources :galleries do
+    resources :images, only: [:new, :create]
+  end
 end
