@@ -29,6 +29,14 @@ class ImagesController < ApplicationController
     redirect_to gallery
   end
 
+  def destroy
+    gallery = find_gallery
+    image = find_image_in(gallery)
+    image.destroy
+
+    redirect_to gallery
+  end
+
   private
 
   def find_image_in(gallery)
