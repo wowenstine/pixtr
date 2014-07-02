@@ -16,6 +16,19 @@ class ImagesController < ApplicationController
     @image = find_image_in(@gallery)
   end
 
+  def edit
+    @gallery = find_gallery
+    @image = find_image_in(@gallery)
+  end
+
+  def update
+    gallery = find_gallery
+    image = find_image_in(gallery)
+    image.update(image_params)
+
+    redirect_to gallery
+  end
+
   private
 
   def find_image_in(gallery)

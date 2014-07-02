@@ -1,5 +1,6 @@
 <nav>
   <%= link_to @gallery.name, @gallery %>
+  <%= link_to "Edit image", edit_gallery_image_path(@gallery, @image) %>
 </nav>
 
 <h1><%= @image.name %></h1>
