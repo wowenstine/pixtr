@@ -1,0 +1,9 @@
+<nav>
+  <%= link_to @gallery.name, @gallery %>
+</nav>
+
+<h1><%= @image.name %></h1>
+
+<p><%= @image.description %></p>
+
+<%= image_tag @image.url %>
