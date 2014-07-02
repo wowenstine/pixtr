@@ -8,8 +8,12 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    Gallery.create(gallery_params)
-    redirect_to galleries_path
+    @gallery = Gallery.new(gallery_params)
+    if @gallery.save
+      redirect_to galleries_path
+    else
+      render :new
+    end
   end
 
   def show
