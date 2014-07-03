@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: "galleries#index"
+
+  resource :session, only: [:new, :create]
+
   resources :users, only: [:new, :create]
   resources :galleries do
     resources :images, only: [:new, :create, :show, :edit, :update, :destroy]
