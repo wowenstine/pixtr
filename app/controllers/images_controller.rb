@@ -5,10 +5,14 @@ class ImagesController < ApplicationController
   end
 
   def create
-    gallery = find_gallery
-    gallery.images.create(image_params)
+    @gallery = find_gallery
+    @image = @gallery.images.new(image_params)
 
-    redirect_to gallery
+    if @image.save
+      redirect_to @gallery
+    else
+      render :new
+    end
   end
 
   def show
@@ -22,11 +26,14 @@ class ImagesController < ApplicationController
   end
 
   def update
-    gallery = find_gallery
-    image = find_image_in(gallery)
-    image.update(image_params)
+    @gallery = find_gallery
+    @image = find_image_in(@gallery)
 
-    redirect_to gallery
+    if @image.update(image_params)
+      redirect_to @gallery
+    else
+      render :edit
+    end
   end
 
   def destroy
