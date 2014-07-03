@@ -1,1 +1,12 @@
 <h1>Sign up</h1>
+
+<%= form_for(@user) do |form| %>
+  <%= render "errors", object: @user %>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <%= form.submit "Sign up" %>
+<% end %>
