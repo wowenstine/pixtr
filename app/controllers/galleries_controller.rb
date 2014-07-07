@@ -1,4 +1,7 @@
 class GalleriesController < ApplicationController
+
+  before_action :require_login
+  
   def index
     @galleries = Gallery.all
   end

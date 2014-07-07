@@ -4,8 +4,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    @user = sign_up(user_params)
+
+    if @user.valid?
+      sign_in(@user)
       redirect_to galleries_path
     else
       render :new
@@ -15,6 +17,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :password)
   end
 end

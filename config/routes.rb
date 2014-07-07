@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "galleries#index"
+  root to: "homes#show"
 
   resource :session, only: [:new, :create, :destroy]
 
