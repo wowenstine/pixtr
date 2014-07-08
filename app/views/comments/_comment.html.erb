@@ -1,5 +1,6 @@
 <div>
   <h3> <%= comment.user.email %> </h3>
   <p> <%= comment.content %> </p>
+  <i> <%= comment.created_at.strftime("%H:%M: %Y-%m-%d") %> </i>
 </div>
 

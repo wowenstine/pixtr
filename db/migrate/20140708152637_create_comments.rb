@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
     	t.text :content
     	t.belongs_to :user
     	t.belongs_to :image, index: true
-    	t.timestamp
+    	t.timestamps
     end
   end
 end

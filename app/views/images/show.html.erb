@@ -11,3 +11,8 @@
 <%= image_tag @image.url %>
 <%= render @image.comments %>
 
+<%= form_for([@gallery, @image, @comment]) do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit "Post" %>
+<% end %>
+
